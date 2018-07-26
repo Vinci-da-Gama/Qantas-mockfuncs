@@ -1,0 +1,237 @@
+<h3 class="text-center my-3">
+	Mock Code
+</h3>
+<div class="row">
+	<!-- Q1 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Performs a GET request and returns a RequestReturnObject
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					request.get(url: String): RequestReturnObject
+				</h6>
+				<p class="card-text text-success">
+					request.get('url')
+					<br />
+					.on('response', (resp) => &#123;
+						return resp;
+					&#125;)
+					<br />
+					.on('error', (err) => &#123;
+						return err;
+					&#125;)
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q1 -->
+	<!-- Q2 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Saves an arbitrary object in a NoSQL database (<code>mongoose</code>)
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					db.save(obj: Object)
+				</h6>
+				<p class="card-text text-success">
+					objModel.save((err, response) => &#123;<br />
+						&nbsp;&nbsp;if (err) &#123;
+								&nbsp;&nbsp;&nbsp;&nbsp;return res.json(&#123;
+										success: false,
+										responseCode: 0
+								&#125;);
+						&nbsp;&nbsp;&#125;<br />
+						&nbsp;&nbsp;res.json(&#123;
+								success: true,
+								responseCode: 1,
+								user: response
+						&#125;);<br />
+					&#125;);<br />
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q2 -->
+	<!-- Q3 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Find all objects whose attibute @attr matches the regular expression @what
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					db.find(attr: String, what: RegExp)
+				</h6>
+				<p class="card-text text-success">
+					db.find(attr: String, what: RegExp)<br />
+					.then((response) => &#123;
+						if (what.test(attr.name)) &#123;
+							return response;
+						&#125;
+					&#125;)<br />
+					.catch((err) => &#123;
+						console.log(err);
+					&#125;);
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q3 -->
+	<!-- Q4 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Find all objects whose attibute @attr matches the regular expression @what
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					db.find(attr: String, what: RegExp)
+				</h6>
+				<p class="card-text text-success">
+					db.find(attr: String, what: RegExp)<br />
+					.then((response) => &#123;
+						let arr = [];
+						response.data.forEach(elem => &#123;
+							if (what.test(elem[attr])) &#123;
+								[...arr, elem]
+							&#125;
+						&#125;);
+						return arr;
+					&#125;)<br />
+					.catch((err) => &#123;
+						console.log(err);
+					&#125;);
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q4 -->
+	<!-- Q5 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Define Car Object
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+						carObject:<br />
+						&nbsp;&nbsp;brand: String,<br />
+						&nbsp;&nbsp;color: String,<br />
+						&nbsp;&nbsp;engineSize: Int,<br />
+						&nbsp;&nbsp;drive: '2wd' | '4wd' | 'awd'<br />
+				</h6>
+				<p class="card-text text-success">
+						export class Car &#123;<br />
+							constructor(
+								public id: string = '',
+								public brand: string = 'b0',
+								public color: string = 'c0',
+								public engineSize: number = 1,
+								public drive: string = ''
+							) &#123;&#125;<br />
+						&#125; <br />
+						const Cars: Car[] = [<br />
+							&#123;
+								&nbsp;&nbsp;id: 0,
+								&nbsp;&nbsp;brand: 'brand0',
+								&nbsp;&nbsp;color: 'white',
+								&nbsp;&nbsp;engineSize: 4,
+								&nbsp;&nbsp;drive: 'awd'
+							&#125;,<br />
+							&#123;
+								&nbsp;&nbsp;id: 1,
+								&nbsp;&nbsp;brand: 'brand0',
+								&nbsp;&nbsp;color: 'black',
+								&nbsp;&nbsp;engineSize: 8,
+								&nbsp;&nbsp;drive: '4wd'
+							&#125;,<br />
+							&#123;
+								&nbsp;&nbsp;id: 2,
+								&nbsp;&nbsp;brand: 'brand0',
+								&nbsp;&nbsp;color: 'gray',
+								&nbsp;&nbsp;engineSize: 2,
+								&nbsp;&nbsp;drive: '2wd'
+							&#125;,<br />
+						]
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q5 -->
+	<!-- Q6 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Define 4 urls for updating each property
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					it will send a request to each one of them and store the result in the database.
+				</h6>
+				<p class="card-text text-success">
+						http://test.com/:id/:brand<br />
+						http://test.com/:id/:color<br />
+						http://test.com/:id/:engineSize<br />
+						http://test.com/:id/:drive
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q6 -->
+	<!-- Q7 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					A given url is in the `test.com` domain, then console log the response.
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					`http://test.com/path` - save to db and print
+				</h6>
+				<p class="card-text text-success">
+					(oneFeature = brand | color | engineSize | drive;)<br />
+					request.put(`http://test.com/$&#123;id&#125;/$&#123;oneFeature&#125;`)<br />
+					.on('response', (response) => &#123;
+						console.log(response);
+					&#125;);
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q7 -->
+	<!-- Q8 -->
+	<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-6 offset-xl-0 mb-3">
+		<div class="card bg-transparent">
+			<div class="card-body">
+				<h5 class="card-title">
+					Build a function to find all not AWD cars.
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					function findAllNonAWDCars = &#123; return db.find('drive',/(2|4)wd/); &#125;
+				</h6>
+				<p class="card-text text-success">
+						const findAllNonAWDCars = () => &#123;<br />
+							return db.find(condition: String = 'drive', regx: String = '/(2|4)wd/')<br />
+							.then((resp) => &#123;<br />
+								let arr = [];
+								resp.data.forEach(elem => &#123;
+									if (regx.test(elem[condition])) &#123;
+										[...arr, elem]
+									&#125;<br />
+								&#125;);
+								return arr;
+							&#125;)<br />
+							.catch((err) => &#123;
+								return err;
+							&#125;);
+						&#125;
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- END Q8 -->
+</div>

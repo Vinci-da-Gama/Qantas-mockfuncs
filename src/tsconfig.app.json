@@ -1,0 +1,17 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "../out-tsc/app",
+		"module": "es2015",
+		"baseUrl": "./",
+		"paths": {
+			"@reactiveForm/*": ["app/shared-modules/reactiveform-common/*"]
+		},
+		"types": []
+	},
+	"exclude": [
+		"test.ts",
+		"**/*.spec.ts",
+		"**/*.e2e-spec.ts"
+	]
+}
